@@ -1,5 +1,8 @@
-showAnswerButton = findViewById(R.id.showAnswerButton)
-When using a nullable type, the ?. or !! operators have to be used to access the nullable variable. Using ?. avoids a crash by returning null should showAnswerButton be null for some reason.
+
+// When using a nullable type, the ?. or !! operators have to be used to access the nullable variable. 
+
+
+Using ?. avoids a crash by returning null should showAnswerButton be null for some reason.
 
 showAnswerButton?.setOnClickListener { /* */ }
 This is equivalent to the following code in Java:
