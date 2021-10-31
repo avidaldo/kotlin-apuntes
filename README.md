@@ -1,7 +1,7 @@
 # kotlin-intro
 
   
-1. [Variables, tipos y operadores](https://github.com/avidaldo/kotlin-intro/blob/main/ej1_variables.kt)
+1. [Variables, tipos y operadores](https://github.com/avidaldo/kotlin-intro/blob/main/variablesYTipos.kt)
 2. [Strings](https://github.com/avidaldo/kotlin-intro/blob/main/strings.kt)
 3. [Reflection](https://github.com/avidaldo/kotlin-intro/blob/main/reflection.kt)
 4. [Nullability](https://github.com/avidaldo/kotlin-intro/blob/main/nullability.kt)
