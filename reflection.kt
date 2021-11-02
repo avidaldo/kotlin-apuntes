@@ -6,7 +6,7 @@
  ** Reflection **********************************
  **************************************************************************
  * 
- * https://kotlinlang.org/docs/reflection.html#jvm-dependency
+ * https://kotlinlang.org/docs/reflection.html
  */
 
  /* Podemos ver el tipo de variable en tiempo de ejecución mediante reflexión */
@@ -20,6 +20,13 @@ fun main() {
    println(hola.javaClass)
 
 }
+
+
+/* La llamada "::class" devuelve la clase de Kotlin del objeto referenciado.
+la llamada ".javaClass" devuelve la clase java subyacente (no olviemos que estamos
+compilando Kotlin a bytecode para ser ejecutado en la JDK) */
+
+
 
 /* En Android Studio, para poder utilizar la reflection de Kotlin, será necesario incorporar la 
 al build.gradle del módulo la dependencia:
