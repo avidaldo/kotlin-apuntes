@@ -1,5 +1,8 @@
+//https://stackoverflow.com/questions/44368741/expecting-member-declaration-in-kotlin
 
-private class Persona(private val nombre: String, var edad: Int?) {
+
+
+class Persona(private val nombre: String, var edad: Int?) {
 
     fun presentacion() {
         println("$nombre tiene $edad años")
