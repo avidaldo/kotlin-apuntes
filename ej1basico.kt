@@ -219,4 +219,9 @@ fun igualdadStrings() {
     println("hi" == null)
     println(null == null)
 
+    //println("h" == 'h')
+    /* Error: no se puede comparar un String con un Char. type safety
+    Kotlin enfatiza la seguridad de tipos (type safety) */
+
+
 }

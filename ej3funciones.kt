@@ -109,12 +109,15 @@ Kotlin permite definir funciones dentro del bloque de otra función */
     saludo("Alejandro", "Buenos días")
     saludo("Alejandro")
 
-    /* Los argumentos con valores por defecto siempre tienen que ser los últimos, ya que en caso contrario
+    /* Los argumentos con valores por defecto serán normalmente los últimos, ya que en caso contrario
     * podría no quedar claro qué argumentos son los que se están pasando */
     fun fun1(a: Int, b: Int = 6, c: Int = 5) = a + b + c
     fun1(2, 3);
     fun fun2(a: Int = 1, b: Int = 6, c: Int) = a + b + c
-    // fun2( 2, 3); // Error. se asume que se están pasando los argumentos a y b; y c no tiene valor por defecto
+    // fun2( 2, 3) // Error. se asume que se están pasando los argumentos a y b; y c no tiene valor por defecto
+
+    /* Pero podrían utilizarse con argumentos nombrados (named arguments): */
+    fun2(b=2, c=3)
 
 
 

@@ -3,6 +3,18 @@
  */
 
 
+fun main(args: Array<String>) {
+    val company = { println("GeeksforGeeks")}
+
+    // invoking function method1
+    company()
+
+    // invoking function method2
+    company.invoke()
+}
+
+
+
 /* the map function, which takes, as its arguments, a function and a list, and returns the list formed by applying the
 function to each member of the list. For a language to support map, it must support passing a function as an argument.
  */
