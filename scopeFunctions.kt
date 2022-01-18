@@ -5,7 +5,7 @@
  * https://kotlinlang.org/docs/scope-functions.html
  *
  *
- * Las funciones de ámbito buscan simplemente mejorar la legibilidad del código
+ * Las funciones de ámbito (scope) buscan simplemente mejorar la legibilidad del código
  *
  */
 
@@ -26,7 +26,7 @@ fun testScopeFunctions() {
     alice.incrementaEdad()
     println(alice)
 
-/* Codigo creando un ámbito temporal con let. Nos evita crear una variable para
+/* Código creando un ámbito temporal con let. Nos evita crear una variable para
 operar con el objeto y llamarla repetidamente.
  */
     PersonaSF("Bob", 20).let {

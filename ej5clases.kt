@@ -3,19 +3,12 @@
  **************************************************************************
  *
  * Fuentes:
- * Programming Kotlin by Venkat Subramaniam (2019). Chapter 7
+ * Venkat Subramaniam (2019). Programming Kotlin. Chapter 7
+ * Duncan McGregor & Nat Pryce (2021). Java to Kotlin. A Refactoring Guidebook.
+ * https://kotlinlang.org/docs/classes.html
  */
 
 
-/**************************************************************************
- * object (Singleton)
- *
- * El patrón singleton permite crear clases que garanticen que, de estar instanciadas, siempre se devuelve el mismo
- * objeto. Es un modo de garantizar que una clase solo tiene un único objeto.
- * En Kotlin esto se simplifica, permitiendo crearse directamente objetos sin necesidad de que sean una instancia
- * de una clase. De este modo. Estos objetos son equivalentes a un patrón singleton de Java */
-
-object objeto1
 
 
 /**************************************************************************
@@ -25,30 +18,26 @@ object objeto1
  * se mueve del IDE al compilador. */
 
 
-class ClaseMinima
 
-
-public class Coche1 {
+public class CocheEstiloJava {
     public val yearOfMake: Int = 0  // propiedad inmutable
-
     public constructor(yearOfMake: Int)
-
 }
 
-public class Car public constructor(public val yearOfMake: Int)
+public class CocheSimplificada public constructor(public val yearOfMake: Int)
 
 
 /** Clase con una propiedad */
 class Coche(val anho: Int)
 /* Con esta notación estamos definiendo la clase Coche, con una propiedad "anho" de solo lectura (no es modificable por
-ser declarada como "val". Al mismo tiempo estamos definiendo su constructor, que recibe como argumento esa propiedad.
+ser declarada como "val"). Al mismo tiempo estamos definiendo su constructor, que recibe como argumento esa propiedad.
 La línea que define la clase en realidad está definiendo el constructor principal */
 
 
 
 fun testClases() {
     val coche = Coche(2021)  // Instancia de la clase coche llamando a su constructor principal
-    println(coche.anho)  // Acceso a la variable a través de getter implícito?
+    println(coche.anho)  // Acceso a la variable a través de getter implícito
 
 
     class Coche3(val anhoFabricacion: Int, var color: String)
@@ -59,6 +48,97 @@ fun testClases() {
 
 
 }
+
+
+class Persona(val mascotas: MutableList<Mascota> = mutableListOf())
+
+class Mascota {
+    constructor(propietario: Persona) { // constructor secundario
+        propietario.mascotas.add(this)
+    }
+}
+
+/** Si una clase tiene un constructor primario, cualquier constructor secundario tiene que delegar al primero
+ * refiriéndolo con "this"
+ */
+
+class Persona2(private val nombre: String) { // Declaración de clase con constructor primario y una propiedad inmutable
+    private val hijos: MutableList<Persona2> = mutableListOf() // Declaración de otra propiedad inmutable (que es un puntero a una lista mutable)
+    constructor(name: String, padre: Persona2) : this(name) { // Constructor secundario, que llama al primario
+        padre.hijos.add(this)
+    }
+}
+
+
+/**
+ * Bloque init
+ *
+ * https://www.baeldung.com/kotlin/init-vs-constructor-block
+ * */
+
+
+class Persona3(private val firstName: String, private val lastName: String) {
+    /** Como contrapartida a la simplificación del código del constructor primario, este no puede contener código.
+     * Para poder introducir código que se ejecute cuando se llama al constructor primario, existen los bloques init.
+     * Cada vez que se llama al constructor, Kotlin ejecutará los bloques inir en el orden en que aparecen en el cuerpo
+     * de la clase.
+     */
+
+    private val fullName: String = "$firstName $lastName".trim()
+        .also { println("Log: Asignado nombre completo") }
+
+    init {
+        println("Log: Nombre completo: $fullName")
+    }
+
+    private val initials =  "${firstName.firstOrEmpty()}${lastName.firstOrEmpty()}".trim()
+        .also { println("Log: Asignado iniciales") }
+
+    init {
+        println("Log: Iniciales: $initials")
+    }
+
+    constructor(lastName: String): this("", lastName) { // Constructor secundario
+        println("Log: Constructor secundario: $lastName")
+    }
+    /* El constructor secundario sí puede contener su propia lógica de inicialización, pero un constructor secundario
+    necesitará delegar en el primario, ejecutándose igualmente los bloques de inicialización
+     */
+
+    private fun String.firstOrEmpty(): Char = firstOrNull()?.uppercaseChar() ?: ' '
+}
+
+fun testPersona3() {
+    val p = Persona3( "Pepe", "Pérez")
+    println("--")
+    val p2 = Persona3("Vidal")
+}
+
+
+
+class Sample(var s : String) {
+    constructor(t: String, u: String) : this(t) {
+        this.s += u
+    }
+    init {
+        s += "B"
+    }
+}
+
+fun testSample() = println(Sample("T","U").s)
+
+
+/** Aunque no haya constructor primario, la delegación se da implícitamente de todos modos: */
+class Constructors {
+    init { println("Init block") }
+
+    constructor(i: Int) {
+        println("Constructor $i")
+    }
+}
+fun testConstructors() = Constructors(1)
+
+
 
 
 
@@ -119,15 +199,18 @@ fun textPrueba2() {
 
 
 
-class Persona1(private val nombre: String) {
-    var nombre = nombre
-        set(value) {  // Definición del setter
-            if (value.isBlank()) // isBlank comprueba que un String no conste solo de espacios o esté vacío
-                throw RuntimeException("El nombre de una persona no puede estar vacío")
-            field = value
-        }
+class Rectangulo2(private val longitud: Int, private val anchura: Int) {
+    private val area get() = this.longitud * this.anchura
+    /* Cada vez que se accede a la propiedad, se está llamando a su getter.
+    No es necesario el tipo al ser inferible por el getter */
 
+    override fun toString() = "Rectángulo con ${area}px de área ($longitud*$anchura)"
 }
+
+fun testRentangulo() {
+    println(Rectangulo2(3, 4))
+}
+
 
 
 /** https://stackoverflow.com/questions/41440750/kotlin-why-do-i-need-to-initialize-a-var-with-custom-getter */
@@ -145,14 +228,12 @@ class PruebasBackingFields () {
         get() = "hello"*/
 
     /** Para forzar una propiedad var sin campo, podríamos recurrir a una backing property: */
-    var _saludo4: String = ""
+    private var _saludo4: String = ""
     var saludo4: String
         get() = "hola"
         set(value) { _saludo4 = value}
 
 }
-
-
 
 
 
@@ -174,72 +255,6 @@ class Tabla() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-class Rectangulo2(private val longitud: Int, private val anchura: Int) {
-    private val area get() = this.longitud * this.anchura
-    /* Cada vez que se accede a la propiedad, se está llamando a su getter.
-    No es necesario el tipo al ser inferible por el getter */
-
-    override fun toString() = "Rectángulo con ${area}px de área ($longitud*$anchura)"
-}
-
-fun testRentangulo() {
-    println(Rectangulo2(3, 4))
-}
-
-
-
-
-class Persona(private val nombre: String, var edad: Int?) {
-
-    fun presentacion() {
-        println("$nombre tiene $edad años")
-    }
-
-}
-
-data class PersonaData(
-    val nombre: String,
-    var edad: Int?
-)
-
-class Persona2(private var data: PersonaData) {
-
-    override fun toString(): String {
-        data.edad?.let { return "${data.nombre} tiene ${data.edad} años" }
-            ?: run { return "${data.nombre} no tiene edad registrada" }
-
-    }
-}
-
-fun pruebasPersona() {
-    val persona1 = Persona("Alejandro Vidal", 35)
-    persona1.presentacion()
-    persona1.edad = 36
-    persona1.presentacion()
-
-
-    val persona2Data = PersonaData("María", 29)
-    val persona2 = Persona2(persona2Data)
-    println(persona2.toString())
-    persona2Data.edad = 30
-    println(persona2.toString())
-    persona2Data.edad = null
-    println(persona2.toString())
-
-}
 
 
 /**************************************************************************
@@ -274,6 +289,17 @@ fun comparaRectangulos() {
     println("${obj1 > obj2}")
 
 }
+
+
+/**************************************************************************
+ * object (Singleton)
+ *
+ * El patrón singleton permite crear clases que garanticen que, de estar instanciadas, siempre se devuelve el mismo
+ * objeto. Es un modo de garantizar que una clase solo tiene un único objeto.
+ * En Kotlin esto se simplifica, permitiendo crearse directamente objetos sin necesidad de que sean una instancia
+ * de una clase. De este modo. Estos objetos son equivalentes a un patrón singleton de Java */
+
+object objeto1
 
 
 /**************************************************************************
