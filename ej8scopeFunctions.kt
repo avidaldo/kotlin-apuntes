@@ -9,7 +9,7 @@ import kotlin.random.Random
  *
  *
  * Las funciones de ámbito (scope) buscan simplemente mejorar la legibilidad del código
- * 
+ *
  * https://hackernoon.com/hn-images/1*bD7r_xcW5CWN389WEfgPDg.png
  * https://hackernoon.com/kotlin-a-deeper-look-8569d4da36f
  *
@@ -72,11 +72,12 @@ fun testScopeFunctions2() {
      * de modo que podrían seguirse haciendo referencias al propio objeto. */
 
     val mailer2 =
-        Mailer()
-            .apply { from("builder@agiledeveloper.com") }
-            .apply { to("venkats@agiledeveloper.com") }
-            .apply { subject("Your code sucks") }
-            .apply { body("details") }
+        Mailer().apply {
+                from("builder@agiledeveloper.com")
+                to("venkats@agiledeveloper.com")
+                subject("Your code sucks")
+                body("details")
+            }
     val result2 = mailer2.send()
     println("result2:\n$result2")
 
@@ -180,7 +181,6 @@ fun testScopeFunctions4let() {
 }
 
 
-
 fun testScopeFunctions4with() {
 
     /** with no es una función de extensión (a diferencia de las otras funciones de ámbito)
@@ -206,7 +206,7 @@ fun testScopeFunctions4with() {
 fun testScopeFunctions4also() {
     val numbers = mutableListOf("one", "two", "three")
 
-    numbers.let{ println("The list elements before adding new one: $it") }
+    numbers.let { println("The list elements before adding new one: $it") }
 
     /** also permite acceder al objeto contexto como let (con it), pero además devuelve el objeto.
      */
