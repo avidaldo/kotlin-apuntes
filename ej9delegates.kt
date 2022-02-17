@@ -61,3 +61,9 @@ fun main(){
     println(lista4.apply { remove("two") }.deletedItem)
 
 }
+
+
+
+
+
+
