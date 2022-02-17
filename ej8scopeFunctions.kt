@@ -9,7 +9,7 @@ import kotlin.random.Random
  *
  *
  * Las funciones de ámbito (scope) buscan simplemente mejorar la legibilidad del código
- *
+ * 
  * https://hackernoon.com/hn-images/1*bD7r_xcW5CWN389WEfgPDg.png
  * https://hackernoon.com/kotlin-a-deeper-look-8569d4da36f
  *
@@ -41,6 +41,29 @@ operar con el objeto y llamarla repetidamente. */
         it.incrementaEdad()
         println("$it")
     }
+    println(bob)
+
+
+
+
+    val listadoPersonas = mutableListOf<PersonaSF>()
+
+    println(listadoPersonas)
+    
+    PersonaSF("Bob", 20).also {
+        it.incrementaEdad()
+        listadoPersonas.add(it)
+        println(it)
+    }
+    
+    PersonaSF("Alice", 24).also {
+        it.incrementaEdad()
+        listadoPersonas.add(it)
+        println(it)
+    }
+
+    println(listadoPersonas)
+
 }
 
 
@@ -72,12 +95,11 @@ fun testScopeFunctions2() {
      * de modo que podrían seguirse haciendo referencias al propio objeto. */
 
     val mailer2 =
-        Mailer().apply {
-                from("builder@agiledeveloper.com")
-                to("venkats@agiledeveloper.com")
-                subject("Your code sucks")
-                body("details")
-            }
+        Mailer()
+            .apply { from("builder@agiledeveloper.com") }
+            .apply { to("venkats@agiledeveloper.com") }
+            .apply { subject("Your code sucks") }
+            .apply { body("details") }
     val result2 = mailer2.send()
     println("result2:\n$result2")
 
@@ -130,18 +152,6 @@ fun testScopeFunctions3let() {
 
 }
 
-fun testScopeFunctions3run() {
-    fun getNullableLength(ns: String?) {
-        println("for \"$ns\":")
-        ns?.let {                                                  // 1
-            println("\tis empty? " + it.isEmpty())                    // 2
-            println("\tlength = ${it.length}")                                           // 3
-        }
-    }
-    getNullableLength(null)
-    getNullableLength("")
-    getNullableLength("some string with Kotlin")
-}
 
 
 fun testScopeFunctions3also() {
@@ -168,6 +178,10 @@ fun testScopeFunctions4let() {
     val resultList = numbers.map { it.length }.filter { it > 3 }
     println(resultList)
 
+
+    println(mutableListOf("one", "two", "three", "four", "five").run{ filter { it.length > 3 }})
+
+
     /** let permitirá printear el resultado de la operación y hacer más cosas sobre la
      * referencia al objeto desde que se llama (it) */
     numbers.map { it.length }.filter { it > 3 }.let {
@@ -181,10 +195,11 @@ fun testScopeFunctions4let() {
 }
 
 
+
 fun testScopeFunctions4with() {
 
     /** with no es una función de extensión (a diferencia de las otras funciones de ámbito)
-     * El objeto contexto se passa como argumento, pero dentro de la lambda, estará disponible
+     * El objeto contexto se pasa como argumento, pero dentro de la lambda, estará disponible
      * como un receiver (this). Devuelve el resultado de la lambda.
      */
 
@@ -206,7 +221,7 @@ fun testScopeFunctions4with() {
 fun testScopeFunctions4also() {
     val numbers = mutableListOf("one", "two", "three")
 
-    numbers.let { println("The list elements before adding new one: $it") }
+    numbers.let{ println("The list elements before adding new one: $it") }
 
     /** also permite acceder al objeto contexto como let (con it), pero además devuelve el objeto.
      */
