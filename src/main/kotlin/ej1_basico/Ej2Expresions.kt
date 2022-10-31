@@ -3,25 +3,24 @@
 
 /***************************************************************************
  ** Expresiones y sentencias (statements) **********************************
- **************************************************************************
+ ***************************************************************************
  *
  * Fuentes:
  * Programming Kotlin by Venkat Subramaniam (2019). Chapter 2
  *
  *
  * Java, C#, JavaScript otros lenguajes tradicionales más orientados a la programación imperativa
- * prefieren el uso de sentencias Otros lenguajes (Ruby, Groovy,
- * Haskell) priorizan el uso de expresiones.
- *
+ * prefieren el uso de sentencias. Otros lenguajes (Ruby, Groovy, Haskell) priorizan el uso de expresiones.
  *
  * Kotlin prefiere las expresiones a las sentencias.
  *
  * Las sentencias no devuelven nada y son una fuente de efectos secundarios (side effects).
  * Un efecto secundario es un cambio de estado: modificar una variable, escribir un fichero...
  *
- *
  * Expresión es cualquier elemento sustituible por un valor.
  *
+ *
+ * TODO: Revisión terminológica: ¿intrucción vs sentencia?
  */
 
 

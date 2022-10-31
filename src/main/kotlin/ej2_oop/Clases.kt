@@ -1,5 +1,7 @@
+package ej2_oop
+
 /**************************************************************************
- ** Programación Orientada a Objetos en Kotlin ***********************
+ ** Clases en Kotlin ***********************
  **************************************************************************
  *
  * Fuentes:
@@ -18,52 +20,40 @@
  * se mueve del IDE al compilador. */
 
 
-
-public class CocheEstiloJava {
-    public val yearOfMake: Int = 0  // propiedad inmutable
-    public constructor(yearOfMake: Int)
+class CocheEstiloJava {
+    val yearOfMake: Int = 0  // propiedad inmutable
+    constructor(yearOfMake: Int)
 }
 
-public class CocheSimplificada public constructor(public val yearOfMake: Int)
+class CocheSimplificada(val yearOfMake: Int)
 
 
 /** Clase con una propiedad */
 class Coche(val anho: Int)
 /* Con esta notación estamos definiendo la clase Coche, con una propiedad "anho" de solo lectura (no es modificable por
 ser declarada como "val"). Al mismo tiempo estamos definiendo su constructor, que recibe como argumento esa propiedad.
-La línea que define la clase en realidad está definiendo el constructor principal */
-
+La línea que define la clase está definiendo el constructor principal */
 
 
 fun testClases() {
     val coche = Coche(2021)  // Instancia de la clase coche llamando a su constructor principal
     println(coche.anho)  // Acceso a la variable a través de getter implícito
 
+    class Coche2(val anhoFabricacion: Int, var color: String)
 
-    class Coche3(val anhoFabricacion: Int, var color: String)
-
-    val coche3 = Coche3(2021, "Rojo")
-    coche3.color = "Verde" // Llamada implícita al setter
-    println(coche3.color) // Llamada implícita al getter
-
-
+    val coche2 = Coche2(2021, "Rojo")
+    coche2.color = "Verde" // Llamada implícita al setter
+    println(coche2.color) // Llamada implícita al getter
 }
 
 
-class Persona(val mascotas: MutableList<Mascota> = mutableListOf())
-
-class Mascota {
-    constructor(propietario: Persona) { // constructor secundario
-        propietario.mascotas.add(this)
-    }
-}
 
 /** Si una clase tiene un constructor primario, cualquier constructor secundario tiene que delegar al primero
- * refiriéndolo con "this"
- */
+ * refiriéndolo con "this" */
 
 class Persona2(private val nombre: String) { // Declaración de clase con constructor primario y una propiedad inmutable
-    private val hijos: MutableList<Persona2> = mutableListOf() // Declaración de otra propiedad inmutable (que es un puntero a una lista mutable)
+    private val hijos: MutableList<Persona2> = mutableListOf() // Declaración de otra propiedad inmutable (que es un puntero
+    // a una lista mutable)
     constructor(name: String, padre: Persona2) : this(name) { // Constructor secundario, que llama al primario
         padre.hijos.add(this)
     }
@@ -77,7 +67,16 @@ class Persona2(private val nombre: String) { // Declaración de clase con constr
  * */
 
 
-class Persona3(private val firstName: String, private val lastName: String) {
+class Persona4(val mascotas: MutableList<Mascota> = mutableListOf())
+
+class Mascota(propietario: Persona4) {
+    init {
+        propietario.mascotas.add(this)
+    }
+}
+
+
+class Persona3(val firstName: String, val lastName: String) {
     /** Como contrapartida a la simplificación del código del constructor primario, este no puede contener código.
      * Para poder introducir código que se ejecute cuando se llama al constructor primario, existen los bloques init.
      * Cada vez que se llama al constructor, Kotlin ejecutará los bloques inir en el orden en que aparecen en el cuerpo
@@ -102,8 +101,7 @@ class Persona3(private val firstName: String, private val lastName: String) {
         println("Log: Constructor secundario: $lastName")
     }
     /* El constructor secundario sí puede contener su propia lógica de inicialización, pero un constructor secundario
-    necesitará delegar en el primario, ejecutándose igualmente los bloques de inicialización
-     */
+    necesitará delegar en el primario, ejecutándose igualmente los bloques de inicialización. */
 
     private fun String.firstOrEmpty(): Char = firstOrNull()?.uppercaseChar() ?: ' '
 }
@@ -113,8 +111,6 @@ fun testPersona3() {
     println("--")
     val p2 = Persona3("Vidal")
 }
-
-
 
 class Sample(var s : String) {
     constructor(t: String, u: String) : this(t) {
@@ -137,9 +133,6 @@ class Constructors {
     }
 }
 fun testConstructors() = Constructors(1)
-
-
-
 
 
 
@@ -277,7 +270,7 @@ class Rectangulo(private val longitud: Int, private val anchura: Int) : Comparab
         }
     }
 
-    override fun toString() = "Rectangulo con longitud = $longitud y anchura = $anchura"
+    override fun toString() = "ej2_oop.Rectangulo con longitud = $longitud y anchura = $anchura"
 
 }
 
@@ -291,56 +284,3 @@ fun comparaRectangulos() {
 }
 
 
-/**************************************************************************
- * object (Singleton)
- *
- * El patrón singleton permite crear clases que garanticen que, de estar instanciadas, siempre se devuelve el mismo
- * objeto. Es un modo de garantizar que una clase solo tiene un único objeto.
- * En Kotlin esto se simplifica, permitiendo crearse directamente objetos sin necesidad de que sean una instancia
- * de una clase. De este modo. Estos objetos son equivalentes a un patrón singleton de Java */
-
-object objeto1
-
-
-/**************************************************************************
- * Objetos anónimos
- *
- * https://kotlinlang.org/docs/object-declarations.html
- * */
-
-fun objetosAnonimos() {
-
-    val obj = object { // Creación de un objeto anónimo
-        val pregunta = "el sentido de la vida, el universo y todo lo demás"
-        val respuesta = 42
-
-        override fun toString(): String {
-            return "La respuesta a \"${pregunta}\" es ${respuesta}"
-        }
-    }
-
-    println("La respuesta a \"${obj.pregunta}\" es ${obj.respuesta}")
-    println(obj)
-
-
-}
-
-/** Los objetos anónimos pueden servir para implementar interfaces, del mismo modo que con
-las clases anónimas internas de Java.
-Por ejemplo, para los Listeners (ver el proyecto EventosKotlin, Ej01VariantesCallbackActivity) */
-
-val aRunnable = object : Runnable { // La interfaz Runnable está diseñada para crear hilos (threads) de ejecución
-    override fun run() {
-        println("Esto se ejecutará en un hilo")
-    }
-}
-
-/** Como Runnable es una interfaz con un único método abstracto (single abstract method interface), equivalente
- * a una interface funcional de Java, es simplificable a una lambda */
-
-val aRunnable2 = Runnable { println("Esto se ejecutará en otro hilo") }
-
-fun llamaRunnables() {
-    aRunnable.run()
-    aRunnable2.run()
-}

@@ -1,5 +1,5 @@
 //
-// Rangos basándose en objeto Rectangulo: https://www.geeksforgeeks.org/comparable-interface-in-kotlin/
+// Rangos basándose en objeto ej2_oop.Rectangulo: https://www.geeksforgeeks.org/comparable-interface-in-kotlin/
 
 
 

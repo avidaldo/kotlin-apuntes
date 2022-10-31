@@ -21,7 +21,7 @@
  */
 
 
-fun main() {    /* Meto el código en el main para facilitar la ejecución.
+fun main() {    /* Meto el código en el ej2_oop.extra.main para facilitar la ejecución.
 Kotlin permite definir funciones dentro del bloque de otra función */
 
     /* Función con bloque de cuerpo */

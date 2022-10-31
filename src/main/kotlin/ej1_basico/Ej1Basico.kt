@@ -11,7 +11,7 @@
  */
 
 
-/** Función main para ejecutar el fichero */
+/** Función ej2_oop.extra.main para ejecutar el fichero */
 fun main() {
     tiposVariables()
     //tiposDatosNumericos()

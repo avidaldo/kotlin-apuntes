@@ -236,7 +236,7 @@ fun main() {
     testScopeFunctions(); println("\n----\n")
     testScopeFunctions2(); println("\n----\n")
     testScopeFunctions3let(); println("\n----\n")
-    testScopeFunctions3run(); println("\n----\n")
+    //testScopeFunctions3run(); println("\n----\n")
     testScopeFunctions3also(); println("\n----\n")
     testScopeFunctions4let(); println("\n----\n")
     testScopeFunctions4with(); println("\n----\n")
