@@ -4,8 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 class Person {  // Desde Java 14 podría sustiturse por un record (https://www.baeldung.com/java-record-keyword)
-    final String name;
-    final Date birthDate;  // Debería ser también private para evitar el problema
+    private final String name;
+    private final Date birthDate;  // Debería ser también private para evitar el problema
 
     String getName() {
         return name;
@@ -34,7 +34,7 @@ class Person {  // Desde Java 14 podría sustiturse por un record (https://www.b
         System.out.println(p);
 
         //p.name = "Otro"; // Error de compilación por ser final
-        p.birthDate.setDate(22);
+        p.getBirthDate().setDate(22);
         /* Permite cambiar el día por ser el tipo Date mutable. El campo no se reasigna (apunta al mismo
         objeto) así que no incumple ser final, pero el objeto se ha modificado. */
 
