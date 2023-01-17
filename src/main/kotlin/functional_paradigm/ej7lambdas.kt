@@ -24,6 +24,9 @@ fun higherfunc4(a: Int, b: Int, operacion: (Int, Int) -> Int): Int{
 
 fun add(a: Int, b: Int) = a + b
 
+
+
+
 fun main() {
     higherfunc { println("Hola") }
     higherfunc2 { a, b -> a + b }

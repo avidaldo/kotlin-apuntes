@@ -153,10 +153,4 @@ Kotlin permite definir funciones dentro del bloque de otra función */
     /* Podría simplificarse a esto: */
     fun maxOrNull2(vararg numbers: Int) = numbers.maxOrNull()
 
-
-
-
-
-
-
 }
