@@ -59,7 +59,7 @@ fun main() {
 /** typealias permite crear un nombre alternativo para un tipo existente. En este caso nos permite
  * concretar un nombre que identifica una lambda que recibe un String como entrada.
  * En Kotlin nos puede permitir sustituir a la interfaz*/
-typealias Observer = (event: String) -> Unit;
+typealias Observer = (String) -> Unit;
 
 class EventSource {
     private var observers = mutableListOf<Observer>()
@@ -85,8 +85,8 @@ fun test() {
     println("Enter Text: ")
     val eventSource = EventSource()
 
-    eventSource.addObserver { event ->
-        println("Received response: $event")
+    eventSource.addObserver {
+        println("Received response: $it")
     }
 
     eventSource.scanSystemIn()

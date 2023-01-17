@@ -64,6 +64,8 @@ fun main(){
 
 
 
+// https://vtsen.hashnode.dev/understand-by-delegated-properties-in-kotlin?source=personalized-newsletter&source-id=2022-11-24
+
 
 
 
