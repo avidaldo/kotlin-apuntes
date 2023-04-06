@@ -1,3 +1,5 @@
+package p1_basico
+
 /** Para probar código online (más ligero): https://play.kotlinlang.org/  */
 
 
@@ -21,7 +23,7 @@
  */
 
 
-fun main() {    /* Meto el código en el ej2_oop.extra.main para facilitar la ejecución.
+fun main() {    /* Meto el código en el ej2_oop.extra.functional_paradigm.p1_basico.main para facilitar la ejecución.
 Kotlin permite definir funciones dentro del bloque de otra función */
 
     /* Función con bloque de cuerpo */
@@ -29,12 +31,12 @@ Kotlin permite definir funciones dentro del bloque de otra función */
         return "Hola, $nombre" // Si devuelve un valor (relevante), requiere return
     }
 
-    /** Las funciones en Kotlin pueden ser tratadas como expresiones */
+    /** Las funciones en Kotlin pueden ser tratadas como p1_basico.expresiones */
 
     /** Se permiten funciones de una única expresion **/
     fun saludar2(nombre: String): String = "Hola, $nombre"
 
-    /** En expresiones únicas se puede inferir el tipo de salida: */
+    /** En p1_basico.expresiones únicas se puede inferir el tipo de salida: */
     fun saludar3(nombre: String) = "Hola, $nombre"
     println(saludar3("Alejandro"))
 
@@ -136,7 +138,7 @@ Kotlin permite definir funciones dentro del bloque de otra función */
         return max
     } /* Realmente esta función tiene un problema: si no se pasa ningún parámetro, devuelve la contante MIN_VALUE,
     sea o no un valor de la lista de parámetros */
-    println("max(): ${max()}; max(3, 6, 2): ${max(3, 6, 2)}")
+    println("p1_basico.max(): ${max()}; p1_basico.max(3, 6, 2): ${max(3, 6, 2)}")
 
 
     /* La misma función, más correcta: */

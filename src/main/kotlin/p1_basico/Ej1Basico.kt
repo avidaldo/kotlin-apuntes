@@ -1,3 +1,5 @@
+package p1_basico
+
 /** Para probar código online (más ligero): https://play.kotlinlang.org/  */
 
 
@@ -11,12 +13,12 @@
  */
 
 
-/** Función ej2_oop.extra.main para ejecutar el fichero */
+/** Función ej2_oop.extra.functional_paradigm.p1_basico.main para ejecutar el fichero */
 fun main() {
     tiposVariables()
-    //tiposDatosNumericos()
-    //stringTemplates()
-    //igualdadStrings()
+    //p1_basico.tiposDatosNumericos()
+    //p1_basico.stringTemplates()
+    //p1_basico.igualdadStrings()
 }
 
 /***************************************************************************
@@ -151,7 +153,7 @@ fun tiposDatosNumericos() {
  */
 
 
-/** Uso de String templates: Cadenas de texto en las que podemos introducir variables o expresiones */
+/** Uso de String templates: Cadenas de texto en las que podemos introducir variables o p1_basico.expresiones */
 fun stringTemplates() {
 
     var int1 = 10

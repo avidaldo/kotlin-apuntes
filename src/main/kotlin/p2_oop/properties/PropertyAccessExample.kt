@@ -1,4 +1,4 @@
-package ej2_oop.properties
+package p2_oop.properties
 
 class PropertyAccessExample {
     var value: String? = null

@@ -1,3 +1,6 @@
+package p3_functional
+
+import java.util.Collections.shuffle
 import kotlin.random.Random
 
 /***************************************************************************
@@ -232,6 +235,15 @@ fun testScopeFunctions4also() {
 }
 
 
+fun shuffleString() {
+    println("Hello".toCharArray().apply { shuffle() }.joinToString("") )
+    println(String("Hello".toCharArray().apply { shuffle() }) )
+    println("Hello".toCharArray().apply { shuffle() }.let { String(it) } )
+}
+
+
+
+
 fun main() {
     testScopeFunctions(); println("\n----\n")
     testScopeFunctions2(); println("\n----\n")
@@ -241,4 +253,5 @@ fun main() {
     testScopeFunctions4let(); println("\n----\n")
     testScopeFunctions4with(); println("\n----\n")
     testScopeFunctions4also(); println("\n----\n")
+    shuffleString(); println("\n----\n")
 }

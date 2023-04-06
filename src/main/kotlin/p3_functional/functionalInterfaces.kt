@@ -1,4 +1,4 @@
-package functional_paradigm
+package p3_functional
 
 /**
  *

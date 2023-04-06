@@ -1,4 +1,4 @@
-package ej2_oop.extra_mutable_field_visibility
+package p2_oop.extra_mutable_field_visibility
 
 /**
  * GETTERS & SETTERS (BACKING FIELDS)

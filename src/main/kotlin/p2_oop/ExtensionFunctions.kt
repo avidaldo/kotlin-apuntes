@@ -1,4 +1,4 @@
-package ej2_oop
+package p2_oop
 
 /**************************************************************************
  * Funciones de extensión (extension functions)

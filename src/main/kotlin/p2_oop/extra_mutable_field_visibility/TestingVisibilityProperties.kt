@@ -1,4 +1,4 @@
-package ej2_oop.extra_mutable_field_visibility
+package p2_oop.extra_mutable_field_visibility
 
 var varForDoingSomethingElse = 0
 var varForUsingSetter = 0

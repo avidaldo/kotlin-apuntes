@@ -1,4 +1,4 @@
-package ej2_oop.properties;
+package p2_oop.properties;
 
 public class PersonaJava {
     private final String nombre;
