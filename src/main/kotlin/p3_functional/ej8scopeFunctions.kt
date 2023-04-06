@@ -1,6 +1,5 @@
 package p3_functional
 
-import java.util.Collections.shuffle
 import kotlin.random.Random
 
 /***************************************************************************
@@ -122,7 +121,7 @@ fun testScopeFunctions2() {
 }
 
 fun testScopeFunctions3let() {
-    val empty = "test".let { // Ejecuta el bloque sobre el resultado del objeto "test"
+    val empty = "patrones.test".let { // Ejecuta el bloque sobre el resultado del objeto "patrones.test"
         it.isEmpty()     // let devuelve el valor de esta expresión
     }
     println("Is empty: $empty")

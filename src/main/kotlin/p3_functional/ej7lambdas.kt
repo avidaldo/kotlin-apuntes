@@ -1,3 +1,5 @@
+package p3_functional
+
 /**
  * https://www.geeksforgeeks.org/kotlin-higher-order-functions
  */

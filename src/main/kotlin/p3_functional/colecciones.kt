@@ -1,6 +1,6 @@
-//
-// Rangos basándose en objeto ej2_oop.Rectangulo: https://www.geeksforgeeks.org/comparable-interface-in-kotlin/
+package p3_functional
 
+// Rangos basándose en objeto ej2_oop.Rectangulo: https://www.geeksforgeeks.org/comparable-interface-in-kotlin/
 
 
 fun main(){

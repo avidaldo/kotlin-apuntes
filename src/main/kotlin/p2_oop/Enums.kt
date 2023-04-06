@@ -1,3 +1,5 @@
+package p2_oop
+
 import kotlin.random.Random
 
 /**************************************************************************
@@ -14,7 +16,7 @@ import kotlin.random.Random
  * https://play.kotlinlang.org/byExample/03_special_classes/02_Enum
  */
 
-/** Enum que define un nuevo tipo "Estado" que puede tener uno de los 3 valores */
+/** Enum que define un nuevo tipo "p2_oop.Estado" que puede tener uno de los 3 valores */
 enum class Estado {
     ESPERA, EJECUTANDO, TERMINADO;
 }
@@ -45,7 +47,7 @@ enum class Color(val rgb: Int) { // Definimos un constructor con un atributo
 }
 
 fun main() {
-    val red = Color.RED // Variable de tipo (inferido) Color
+    val red = Color.RED // Variable de tipo (inferido) p2_oop.Color
     println(red) // RED
     println(red.rgb)
     println(Color.BLUE.rgb)

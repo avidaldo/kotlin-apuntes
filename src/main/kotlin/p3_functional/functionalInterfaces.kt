@@ -1,7 +1,6 @@
 package p3_functional
 
 /**
- *
  * https://kotlinlang.org/docs/fun-interfaces.html#sam-conversions
  */
 

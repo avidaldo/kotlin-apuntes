@@ -13,7 +13,7 @@ package p1_basico
  */
 
 
-/** Función ej2_oop.extra.functional_paradigm.p1_basico.main para ejecutar el fichero */
+/** Función ej2_oop.extra.functional_paradigm.p1_basico.patrones.patrones.p3_functional.p3_functional.p3_functional.p2_oop.main para ejecutar el fichero */
 fun main() {
     tiposVariables()
     //p1_basico.tiposDatosNumericos()

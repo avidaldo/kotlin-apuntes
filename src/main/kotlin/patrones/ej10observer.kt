@@ -1,3 +1,5 @@
+package patrones
+
 import java.util.*
 
 /***************************************************************************
@@ -19,13 +21,13 @@ class Observer1(var state: String) : IObserver {
 class Observer2(var state: String) : IObserver {
     override fun update(newState: String) {
         state=newState
-        println("Log: cambio de estado del Observer 1 a $state")
+        println("Log: cambio de estado del patrones.Observer 1 a $state")
     }
 }
 
 /** Fuente de eventos */
 class Subject() {
-    var estado = "E0"   // Estado de la fuente de eventos (modelo?)
+    var estado = "E0"   // p2_oop.Estado de la fuente de eventos (modelo?)
         set(value) {field=value; notifyObservers(field)} // Automatizamos la notificación de eventos a los suscriptores
 
     private var observers = mutableListOf<IObserver>() // Lista de observadores suscritos a la fuente de eventos

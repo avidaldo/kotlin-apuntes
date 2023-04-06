@@ -1,4 +1,4 @@
-package p2_oop.extra_mutable_field_visibility
+package p2_oop.properties
 
 /**
  * GETTERS & SETTERS (BACKING FIELDS)

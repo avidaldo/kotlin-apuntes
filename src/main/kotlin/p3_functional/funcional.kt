@@ -1,5 +1,7 @@
-/** Como ya se comentó, el tratamiento de funciones como objetos (First-class functions) permite el uso de funciones de
- * orden superior (higher-order functions).
+package p3_functional
+
+/** Como ya se comentó, el tratamiento de funciones como objetos (First-class functions) permite
+ * el uso de funciones de orden superior (higher-order functions).
  */
 
 
@@ -89,8 +91,8 @@ fun maxOrNull(num1: Int, vararg numbers: Int) =
     numbers.toMutableList().let {
         it.add(num1)
         it.maxOrNull()
-    } /* Por cierto, acabo de sobrecargar maxOrNull() creando una ambiguedad: */
-// maxOrNull(1) // Error, no sabe cual de las funciones sobrecargadas se corresponde
+    } /* Por cierto, acabo de sobrecargar p3_functional.maxOrNull() creando una ambiguedad: */
+// p3_functional.maxOrNull(1) // Error, no sabe cual de las funciones sobrecargadas se corresponde
 
 
 

@@ -23,7 +23,7 @@ package p1_basico
  */
 
 
-fun main() {    /* Meto el código en el ej2_oop.extra.functional_paradigm.p1_basico.main para facilitar la ejecución.
+fun main() {    /* Meto el código en el ej2_oop.extra.functional_paradigm.p1_basico.patrones.patrones.p3_functional.p3_functional.p3_functional.p2_oop.main para facilitar la ejecución.
 Kotlin permite definir funciones dentro del bloque de otra función */
 
     /* Función con bloque de cuerpo */
