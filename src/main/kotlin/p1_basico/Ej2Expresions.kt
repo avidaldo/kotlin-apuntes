@@ -12,9 +12,9 @@ package p1_basico
  *
  *
  * Java, C#, JavaScript otros lenguajes tradicionales más orientados a la programación imperativa
- * prefieren el uso de sentencias. Otros lenguajes (Ruby, Groovy, Haskell) priorizan el uso de p1_basico.expresiones.
+ * prefieren el uso de sentencias. Otros lenguajes (Ruby, Groovy, Haskell) priorizan el uso de expresiones.
  *
- * Kotlin prefiere las p1_basico.expresiones a las sentencias.
+ * Kotlin prefiere las expresiones a las sentencias.
  *
  * Las sentencias no devuelven nada y son una fuente de efectos secundarios (side effects).
  * Un efecto secundario es un cambio de estado: modificar una variable, escribir un fichero...
