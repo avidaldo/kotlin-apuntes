@@ -36,12 +36,13 @@ fun testScopeFunctions() {
     alice.incrementaEdad()
     println(alice)
 
-/* Código creando un ámbito temporal con let. Nos evita crear una variable para
+
+/* Código creando un ámbito temporal con also. Nos evita crear una variable para
 operar con el objeto y llamarla repetidamente. */
-    val bob = PersonaSF("Bob", 20).let {
-        println(it)
-        it.incrementaEdad()
-        println("$it")
+    val bob = PersonaSF("Bob", 20).apply {
+        println(this)
+        this.incrementaEdad()
+        println("$this")
     }
     println(bob)
 
@@ -91,19 +92,30 @@ fun testScopeFunctions2() {
     val result = mailer.send()
     println("result1:\n$result")
 
+    // TODO: comparar con interfaces fluidas
 
     /** Eliminando referencias repetitivas con apply
      * Ejecuta la lambda en el contexto del objeto que la llama y devuelve el propio objeto,
      * de modo que podrían seguirse haciendo referencias al propio objeto. */
 
+    fun from(string: String) = print(string) // para comparar
+
     val mailer2 =
         Mailer()
-            .apply { from("builder@agiledeveloper.com") }
+            .apply { this.from("builder@agiledeveloper.com") }
             .apply { to("venkats@agiledeveloper.com") }
             .apply { subject("Your code sucks") }
             .apply { body("details") }
     val result2 = mailer2.send()
     println("result2:\n$result2")
+
+
+    val result2b =
+        Mailer().apply { this.from("builder@agiledeveloper.com")
+            to("venkats@agiledeveloper.com")
+            subject("Your code sucks")
+            body("details") }.send()
+    println("result2:\n$result2b")
 
 
     /** run devuelve el resultado de la última expresión de la lambda (el String del método send()
@@ -171,7 +183,7 @@ fun testScopeFunctions3also() {
 
 fun testScopeFunctions4let() {
 
-    val numbers = mutableListOf("one", "two", "three", "four", "five")
+    val numbers = listOf("one", "two", "three", "four", "five")
 
     /** Aplicamos sobre una coleccion operaciones:
      * map: para cada elemento aplica la lamda (se convierte el elemento en su longitud)
@@ -179,9 +191,15 @@ fun testScopeFunctions4let() {
      */
     val resultList = numbers.map { it.length }.filter { it > 3 }
     println(resultList)
+    println(numbers)
 
+    println(numbers.map { it.length }.filter { it > 3 })
 
-    println(mutableListOf("one", "two", "three", "four", "five").run{ filter { it.length > 3 }})
+    println(mutableListOf("one", "two", "three", "four", "five")
+        .run{ filter { it.length > 3 }})
+
+    println(mutableListOf("one", "two", "three", "four", "five").filter { it.length > 3 })
+
 
 
     /** let permitirá printear el resultado de la operación y hacer más cosas sobre la
@@ -244,11 +262,11 @@ fun shuffleString() {
 
 
 fun main() {
-    testScopeFunctions(); println("\n----\n")
+/*    testScopeFunctions(); println("\n----\n")
     testScopeFunctions2(); println("\n----\n")
     testScopeFunctions3let(); println("\n----\n")
     //testScopeFunctions3run(); println("\n----\n")
-    testScopeFunctions3also(); println("\n----\n")
+    testScopeFunctions3also(); println("\n----\n")*/
     testScopeFunctions4let(); println("\n----\n")
     testScopeFunctions4with(); println("\n----\n")
     testScopeFunctions4also(); println("\n----\n")
