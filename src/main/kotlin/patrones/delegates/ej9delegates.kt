@@ -1,4 +1,4 @@
-package patrones
+package patrones.delegates
 
 /***************************************************************************
  ** Delegación de clases **********************************
@@ -11,6 +11,7 @@ package patrones
 
 /** Caso de uso: queremos poder recuperar el último item eliminado de un ArrayList */
 
+// TODO: decorator vs delegation
 
 /** Con herencia */
 class ListWithTrashInheritance<T> : ArrayList<T>() {
