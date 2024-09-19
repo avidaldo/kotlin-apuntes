@@ -21,11 +21,10 @@ package p1_basico
  *
  * Expresión es cualquier elemento sustituible por un valor.
  *
- * TODO: Revisión terminológica: ¿instrucción vs sentencia?
  */
 
 
-/** Función que utiliza sentencias (statement). Escrita al estilo de Java */
+/** Función que utiliza sentencias (statements). Escrita al estilo de Java */
 fun canVoteStatement(name: String, age: Int): String {
     val status: String
 

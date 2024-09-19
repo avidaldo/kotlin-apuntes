@@ -13,12 +13,11 @@ package p1_basico
  */
 
 
-/** Función ej2_oop.extra.functional_paradigm.p1_basico.patrones.patrones.p3_functional.p3_functional.p3_functional.p2_oop.main para ejecutar el fichero */
 fun main() {
     tiposVariables()
-    //p1_basico.tiposDatosNumericos()
-    //p1_basico.stringTemplates()
-    //p1_basico.igualdadStrings()
+    //tiposDatosNumericos()
+    //stringTemplates()
+    //igualdadStrings()
 }
 
 /***************************************************************************
@@ -153,7 +152,7 @@ fun tiposDatosNumericos() {
  */
 
 
-/** Uso de String templates: Cadenas de texto en las que podemos introducir variables o p1_basico.expresiones */
+/** Uso de String templates: Cadenas de texto en las que podemos introducir variables o expresiones */
 fun stringTemplates() {
 
     var int1 = 10

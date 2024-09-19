@@ -11,7 +11,7 @@ import java.math.BigDecimal
  * cuando solo necesitamos un determinado objeto y no un tipo de objeto del que se vayan a crear múltiples
  * instancias.
  *
- * Es posible crear objetos desde cero o también heredan de clases existentes (pero sin crear la clase hija) o
+ * Es posible crear objetos desde cero o también heredando de clases existentes (pero sin crear la clase hija) o
  * implementando interfaces.
  *
  * https://kotlinlang.org/docs/object-declarations.html
@@ -25,12 +25,26 @@ fun testingObjetosAnonimos() {
         val respuesta = 42
 
         override fun toString(): String {
-            return "La respuesta a \"${pregunta}\" es ${respuesta}"
+            return "La respuesta a \"${pregunta}\" es $respuesta"
         }
     }
 
     println("La respuesta a \"${obj.pregunta}\" es ${obj.respuesta}")
     println(obj)
+}
+
+    object Obj { // Creación de un objeto anónimo
+        val pregunta = "el sentido de la vida, el universo y todo lo demás"
+        val respuesta = 42
+
+        override fun toString(): String {
+            return "La respuesta a \"${pregunta}\" es $respuesta"
+        }
+    }
+
+fun testingObjetosAnonimos2() {
+    println("La respuesta a \"${Obj.pregunta}\" es ${Obj.respuesta}")
+    println(Obj)
 }
 
 
@@ -46,7 +60,8 @@ val aRunnable = object : Runnable { // La interfaz Runnable está diseñada para
 }
 
 /** Como Runnable es una interfaz con un único método abstracto (single abstract method interface), equivalente
- * a una interfaz funcional de Java, es simplificable a una lambda */
+ * a una interfaz funcional de Java, es simplificable a una lambda
+ */
 
 val aRunnable2 = Runnable { println("Esto se ejecutará en otro hilo") }
 
