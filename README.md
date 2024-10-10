@@ -14,6 +14,7 @@
   - [Objetos](./src/main/kotlin/p2_oop/Objetos.kt)
   - [Extension Functions](./src/main/kotlin/p2_oop/ExtensionFunctions.kt)
   - [Enumerados](./src/main/kotlin/p2_oop/Enums.kt)
+  - [Genéricos](./src/main/kotlin/p2_oop/Generics.kt)
 3. [Programación funcional](./src/main/kotlin/p3_functional)
   - [Funcional](./src/main/kotlin/p3_functional/funcional.kt)
   - [Lambdas](./src/main/kotlin/p3_functional/ej7lambdas.kt)
