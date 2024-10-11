@@ -19,6 +19,7 @@
   - [Funcional](./src/main/kotlin/p3_functional/funcional.kt)
   - [Lambdas](./src/main/kotlin/p3_functional/ej7lambdas.kt)
   - [Scope Functions](./src/main/kotlin/p3_functional/ej8scopeFunctions.kt)
+  - [Scope Functions comparativa entre ellas](./src/main/kotlin/p3_functional/ScopeFunctions.kt)
   - [Colecciones](./src/main/kotlin/p3_functional/colecciones.kt)
   - [Interfaces en funcional](./src/main/kotlin/p3_functional/functionalInterfaces.kt)
 4. [Patrones de diseño](./src/main/kotlin/patrones)
